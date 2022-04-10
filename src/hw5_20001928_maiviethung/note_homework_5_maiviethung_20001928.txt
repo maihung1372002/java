@@ -1,0 +1,36 @@
+combo 1 ( bài 1 và bài 2)
+Bài 1:
+	1.1 ArrayBinaryTree :
+		+ sử dụng mảng để lưu trữ các element của tree
+		+ mảng có dạng [null,root,...] (để cho root ở vị trí 1, ở đây có thể để root ở index 0 nhưng cần phải chỉnh lại các phương thức khác)
+		+ các phần tử left right của phần tử ở vị trí p lần lượt là p*2 và p*2+1
+		+ khi tạo ra 1 tree ta có thể setRoot(value) hoặc set right left của phần tử ở vị trí p (setLeft/Right(p, value))
+	1.2 LinkedBinaryTree:
+		+ Mỗi 1 node được tạo ra có 4 phần element của chính nó above (Node cha) và hai node right, left
+		*lưu ý: khác với Array lưu vị trí là kiểu int t chỉ cần setLeft/right(position,value) thì Linked dùng Node, 
+			có nghĩa là nếu ta muốn set right or left cho Node p ta phải lưu Node p vào 1 biến vd:
+ 		Node<String> root = tree.addRoot("+");
+       
+        	Node<String> leftRoot = tree.addLeft(root, "+");
+        	Node<String> rightRoot = tree.addRight(root, "*");
+        
+        
+       	Node<String> node_4 = tree.addLeft(leftRoot, "8");
+        	Node<String> node_5 = tree.addRight(leftRoot, "*");
+	1.3 print tree:
+		+ sử dụng đệ quy preorder kết hợp với class file writer để xuất ra file .txt
+		+ để có được hình dạng của tree ta có method getDegree(Node p) trả ra bậc của phần tử p 
+		mỗi bậc tương ứng với 2_space được thêm vào string ra output
+		+ output.txt được xuất ra ở ngoài project
+Bài 2:
+	2.1 ExpressionTree: 
+		+ sử dụng đệ quy theo 3 cách pre, in, post (mỗi cách là 1 phương thức tương ứng)
+	2.2 :
+		+ sử dụng class Expression ở trên
+	2.3 calculator:
+		+ main idea: dùng đệ quy theo kiểu preorder trong đó ta check xem có 
+		phần tử nào là toán tử (+-*/ isOperator()) ko và nếu left, right là number thì ta thực hiện phép tính đó luôn 
+		sau đó node cha sẽ là result còn left, right set thành null
+		+ sau đó ta gọi phương thức đã tạo ở trên đến khi nào root là number (isNumber())
+		+ final result chính là root của tree
+		*nhận xét: cách trên khá tốn kém khi mà dùng khá nhiều vòng lặp (while và cả đệ quy)
