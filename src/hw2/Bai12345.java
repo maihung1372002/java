@@ -5,9 +5,13 @@ public class Bai12345 {
         Integer [] ar = { 12,23,12,432,12,35};
         Integer [] ar1 = { 12,23,12,432,12,35};
         Integer [] ar2 = { 12,23,12,432,12,35};
+        Integer [] ar3 = { 12,23,12,432,12,35};
+        Integer [] ar4 = { 12,23,12,432,12,35};
         Sort<Integer> bubble = new BubbleSort<Integer>(ar);
         Sort<Integer> insert = new InsertionSort(ar1);
         Sort<Integer> select = new SelectionSort(ar2);
+        Sort<Integer> quick = new QuickSort<Integer>(ar3);
+        Sort<Integer> merge = new MergeSort<Integer>(ar4);
 
 
         System.out.print("bubble:");
@@ -30,5 +34,14 @@ public class Bai12345 {
         System.out.println();
         System.out.println(insert.getCompare());
         System.out.println(insert.getReplace());
+
+        System.out.print("quick:");
+        quick.sort();
+        quick.print();
+        System.out.println();
+        System.out.print("merge:");
+        merge.sort();
+        merge.print();
+        System.out.println();
     }
 }

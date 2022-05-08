@@ -1,19 +1,24 @@
 package hw3.ex3;
 
-public class SimpleLinkedList<T> {
-    class Node {
-        T data;
-        Node next;
+import java.util.Iterator;
 
-        Node(T data, Node next) {
+public class SimpleLinkedList<T extends Comparable<T>> {
+    public class Node {
+        public T data;
+        public Node next;
+
+        public Node(T data, Node next) {
             this.data = data;
             this.next = next;
         }
+
+        public Node() {
+        }
     }
 
-    private Node top = null;
-    private Node bot = null;
-    private int n = 0;
+    protected Node top = null;
+    protected Node bot = null;
+    protected int n = 0;
 
     public void add(T data) {
         if (top == null) {
@@ -132,6 +137,27 @@ public class SimpleLinkedList<T> {
         return res + "]";
     }
     
+    public Iterator<T> iterator() {
+        Iterator<T> it = new Iterator<T>() {
+            Node head = top;
+            @Override
+            public boolean hasNext() {
+                // TODO Auto-generated method stub
+                return head != null;
+            }
+
+            @Override
+            public T next() {
+                // TODO Auto-generated method stub
+                T currentElement = head.data;
+                head = head.next;
+                return currentElement;
+            }
+            
+        };
+        return it;
+    }
+
     public static void main(String[] args) {
         SimpleLinkedList<String> list = new SimpleLinkedList<>();
         list.add("khanh");

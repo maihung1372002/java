@@ -68,7 +68,7 @@ public class ArrayStack<E> implements StackInterface<E> {
     }
 
     public static void main(String[] args) {
-        LinkedListStack<String> stack = new LinkedListStack<>();
+        ArrayStack<String> stack = new ArrayStack<>();
         stack.push("hung");
         stack.push("hug");
         stack.push("hng");

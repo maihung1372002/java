@@ -34,8 +34,9 @@ public class LinkedBinaryTree<E> implements BinaryTreeInterface<Node<E>> {
         }
     }
 
-    private int n = 0;
-    private Node<E> root = null;
+    protected int n = 0;
+    protected Node<E> root = null;
+    // protected Node<>
     //update methods
     public Node<E> addRoot(E element) {
         // Add element to root of an empty tree
@@ -111,6 +112,15 @@ public class LinkedBinaryTree<E> implements BinaryTreeInterface<Node<E>> {
         return p.parent.left == p ? p.parent.right : p.parent.left;
     }
     
+    public LinkedBinaryTree<E> left() {
+        this.root = root.left;
+        return this;
+    }
+
+    public LinkedBinaryTree<E> right() {
+        this.root = root.right;
+        return this;
+    }
 
     public static void main(String[] args) {
         

@@ -4,18 +4,18 @@ package hw3.ex2;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class SimpleArrayList<T> implements ListInterface<T> {
-    private T[] array;
-    private int n = 0;
+public class SimpleArrayList<T extends Comparable<T>> implements ListInterface<T> {
+    protected T[] array;
+    protected int n = 0;
     private int defaultSize = 100;
     public SimpleArrayList() {
-        array = (T[]) new Object[defaultSize];
+        array = (T[]) new Comparable[defaultSize];
     }
     public SimpleArrayList(int capacity) throws Exception {
         if (capacity <= 0) {
             throw new Exception("invalid length");
         }
-        array = (T[]) new Object[capacity];
+        array = (T[]) new Comparable[capacity];
     }
 
     public void add(T data) {
@@ -38,6 +38,7 @@ public class SimpleArrayList<T> implements ListInterface<T> {
                 break;
             }
         }
+        n--;
         this.array = Arrays.copyOf(array, array.length - 1);
     }
 
@@ -63,7 +64,7 @@ public class SimpleArrayList<T> implements ListInterface<T> {
 
             @Override
             public boolean hasNext() {
-                return id < n - 1;
+                return id < n ;
             }
 
             @Override
@@ -83,6 +84,7 @@ public class SimpleArrayList<T> implements ListInterface<T> {
         System.out.println(Arrays.toString(ob1.array));
 
         System.out.println(ob1.isContain("Hoan"));
+        System.out.println(ob1.size());
 
         ob1.set(3,"hahaa");
         System.out.println(Arrays.toString(ob1.array));
