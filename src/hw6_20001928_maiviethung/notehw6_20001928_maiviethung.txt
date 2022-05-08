@@ -1,0 +1,18 @@
+combo basic 1, 2, 3
+ex1:
+-Sorted vs Unsorted: 
+	+ sorted xắp xếp các element ngay khi ta insert và unsorted thì ko làm gì
+	+ sorted chỉ cần lấy element ở đầu khi dequeue, unsorted phải tìm kiếm min để dequeue
+-array vs linked:
+	+ array là mảng lưu các ArrayEntry, linked là liên kết giữa các NodeEntry
+-nhận xét: đã cài được PriorityQueue dưới 4 dạng
+- cách dùng: 
+	+ queue.insert(key, value) là add thêm element vào queue
+	+ queue.removeMin() xóa và trả về element có key thấp nhất (độ ưu tiên)
+ex2:
+- MinHeap ở đây cài đặt bằng mảng với root (min) ở index 1 (để = 0 hoàn toàn được nhưng phải sửa lại code nhiều chỗ)
+- insert 1 element thì upHeap (vun lên)
+- removeMin thì downHeap (vun xuống)
+ex3:
+- heapSort trả ra 1 mảng các phần tử theo thứ tự tăng dần bằng cách removeMin dần từ MinHeap cho trước
+- sử dụng nanoTime() để xem thời gian thực hiện mỗi thuật toán sort
