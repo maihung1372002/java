@@ -1,25 +1,25 @@
 package hw8_20001928_maiviethung;
 
 public class Egde<E> {
-    E start;
-    E end;  
+    Vertex<E> start;
+    Vertex<E> end;  
     int weight;
-    public Egde(E start, E end, int weight) {
+    public Egde(Vertex<E> start, Vertex<E> end, int weight) {
         this.start = start;
         this.end = end;
         this.weight = weight;
     }  
-    public Egde(E start, E end) {
+    public Egde(Vertex<E> start, Vertex<E> end) {
         this.start = start;
         this.end = end;
         // this.weight = null;/
     }
 
-    public E getStart() {
+    public Vertex<E> getStart() {
         return this.start;
     }
 
-    public E getEnd() {
+    public Vertex<E> getEnd() {
         return this.end;
     }
 
@@ -27,15 +27,23 @@ public class Egde<E> {
         return this.weight;
     }
 
-    public void setStart(E start) {
+    public void setStart(Vertex<E> start) {
         this.start = start;
     }
 
-    public void setEnd(E end) {
+    public void setEnd(Vertex<E> end) {
         this.end = end;
     }
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public String toString() {
+        String str = start.element + " " +end.element;
+        // if (weight != 0) {
+        //     str += " weight: " + weight;
+        // }
+        return  str;
     }
 }
